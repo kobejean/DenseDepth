@@ -12,6 +12,12 @@ from tensorflow.keras.optimizers import Adam
 #from keras.utils import multi_gpu_model
 from tensorflow.keras.utils import plot_model
 
+
+from tensorflow.python.client import device_lib
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+print(device_lib.list_local_devices())
+
 # Argument Parser
 parser = argparse.ArgumentParser(description='High Quality Monocular Depth Estimation via Transfer Learning')
 parser.add_argument('--data', default='nyu', type=str, help='Training dataset.')
