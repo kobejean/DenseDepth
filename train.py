@@ -60,7 +60,7 @@ if True:
     # Keep a copy of this training script and calling arguments
     with open(__file__, 'r') as training_script: training_script_content = training_script.read()
     training_script_content = '#' + str(sys.argv) + '\n' + training_script_content
-    with open(runPath+'/'+__file__, 'w') as training_script: training_script.write(training_script_content)
+    with open(os.path.join(runPath, os.path.basename(__file__)), 'w') as training_script: training_script.write(training_script_content)
 
     # Generate model plot
     plot_model(model, to_file=runPath+'/model_plot.png', show_shapes=True, show_layer_names=True)
